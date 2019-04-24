@@ -23,10 +23,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'org.webjars:bootstrap:3.3.7'
-//	compile group: 'javax.servlet', name: 'jstl', version: '1.2'
-//	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.10'
 	runtime 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.10'
 	implementation 'javax.servlet:jstl:1.2'
+	
+	implementation 'org.keycloak:keycloak-spring-boot-starter:6.0.0'
 
 	compileOnly 'org.eclipse.jdt.core.compiler:ecj:4.6.1'
 	compileOnly 'org.projectlombok:lombok'
