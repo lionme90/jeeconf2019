@@ -36,6 +36,7 @@
 
 	<div class="container">
 	    <h3>Hello, ${name}</h3>
+	    <div>Token: ${token}</div>
 		<table class="table">
                     <thead>
                     <tr>

@@ -1,6 +1,7 @@
 package com.lazy.security.controller;
 
 import com.lazy.security.dto.Order;
+import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.representations.AccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,15 @@ public class OrderController {
     @Autowired
     private AccessToken accessToken;
 
+    @Autowired
+    private KeycloakSecurityContext securityContext;
+
 
     @GetMapping({"/orders"})
     public String orders( Map<String, Object> model) {
         model.put("orders", getOrderList());
         model.put("name", accessToken.getName());
+        model.put("token", securityContext.getTokenString());
         return "orders";
     }
 
