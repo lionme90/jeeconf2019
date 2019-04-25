@@ -17,6 +17,7 @@
 	<link href="${jstlCss}" rel="stylesheet" />
 
 
+
 </head>
 <body>
 
@@ -27,39 +28,16 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="/">Home</a></li>
-					<li><a href="/logout">Logout</a></li>
+					<li class="active"><a href="/orders">My Orders</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+	</div>
+
 	<div class="container">
-	    <h3>Hello, ${name}</h3>
-		<table class="table">
-                    <thead>
-                    <tr>
-                         <th scope="col" >ID</th>
-                         <th scope="col" >Product</th>
-                         <th scope="col" >Customer</th>
-                         <th scope="col" >Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${orders}" var="order">
-                                    <tr>
-                                        <td scope="row" >${order.id}</td>
-                                        <td>${order.product}</td>
-                                        <td>${order.customer}</td>
-                                        <td>${order.price}</td>
-                                    </tr>
-                                </c:forEach>
-                    </tbody>
-
-        </table>
-
-
-
+	    <h1>Orders Application</h1>
 	</div>
 
 	<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
