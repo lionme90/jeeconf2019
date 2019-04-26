@@ -1,14 +1,9 @@
 package com.lazy.security.controller;
 
 import com.lazy.security.dto.Order;
-import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.representations.AccessToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -20,15 +15,9 @@ import static java.util.stream.Collectors.toList;
 public class OrderController {
 
 
-    @Autowired
-    private KeycloakSecurityContext securityContext;
-
-
     @GetMapping({"/orders"})
     public String orders( Map<String, Object> model) {
         model.put("orders", getOrderList());
-        model.put("name", securityContext.getToken().getName());
-        model.put("token", securityContext.getTokenString());
         return "orders";
     }
 
@@ -37,11 +26,6 @@ public class OrderController {
         return "home";
     }
 
-    @GetMapping({"/logout"})
-    public String logout(HttpServletRequest request) throws ServletException {
-        request.logout();
-        return "home";
-    }
 
     private List<Order> getOrderList() {
         return IntStream.range(1, 4)

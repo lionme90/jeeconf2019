@@ -18,17 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 public class SecurityApplication {
 
 
-	@Bean
-	@Scope(scopeName = WebApplicationContext.SCOPE_REQUEST,
-			proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public KeycloakSecurityContext keycloakSecurityContext() {
-		HttpServletRequest request =
-				((ServletRequestAttributes) RequestContextHolder
-						.currentRequestAttributes()).getRequest();
-		return ((KeycloakPrincipal) request.getUserPrincipal())
-				.getKeycloakSecurityContext();
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
 	}

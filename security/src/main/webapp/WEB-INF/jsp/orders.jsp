@@ -28,15 +28,12 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Home</a></li>
-					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 	<div class="container">
-	    <h3>Hello, ${name}</h3>
-	    <div>Token: ${token}</div>
 		<table class="table">
                     <thead>
                     <tr>
