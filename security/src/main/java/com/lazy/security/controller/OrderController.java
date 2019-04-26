@@ -19,8 +19,6 @@ import static java.util.stream.Collectors.toList;
 @Controller
 public class OrderController {
 
-    @Autowired
-    private AccessToken accessToken;
 
     @Autowired
     private KeycloakSecurityContext securityContext;
@@ -29,7 +27,7 @@ public class OrderController {
     @GetMapping({"/orders"})
     public String orders( Map<String, Object> model) {
         model.put("orders", getOrderList());
-        model.put("name", accessToken.getName());
+        model.put("name", securityContext.getToken().getName());
         model.put("token", securityContext.getTokenString());
         return "orders";
     }

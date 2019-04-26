@@ -17,16 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 @SpringBootApplication
 public class SecurityApplication {
 
-	@Bean
-	@Scope(scopeName = WebApplicationContext.SCOPE_REQUEST,
-			proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public AccessToken accessToken() {
-		HttpServletRequest request =
-				((ServletRequestAttributes) RequestContextHolder
-						.currentRequestAttributes()).getRequest();
-		return ((KeycloakPrincipal) request.getUserPrincipal())
-				.getKeycloakSecurityContext().getToken();
-	}
 
 	@Bean
 	@Scope(scopeName = WebApplicationContext.SCOPE_REQUEST,
